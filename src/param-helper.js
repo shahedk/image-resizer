@@ -2,13 +2,13 @@ const md5 = require('md5');
 const config = require('../config');
 
 function getFileName(params){
-    var urlHash = md5(params.url.trim());
+    var urlHash = md5(params.url);
 
     return urlHash;
 }
 
 function getResizedFileName(params){
-    var urlHash = md5(params.url.trim());
+    var urlHash = md5(params.url);
     var fileName = urlHash + '_' + params.height + '_' + params.width;
 
     return fileName;
