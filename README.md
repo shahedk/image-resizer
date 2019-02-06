@@ -11,7 +11,7 @@ docker run  -p 8080:80 shahedk/image-resizer:latest
 ```
 The above script will start the container at http://localhost:8080
 
-##### Resize images from url
+#### Resize images from url
 Specify the image url and desired settings in the parameters. The response will contain the output image:
 
 ```
