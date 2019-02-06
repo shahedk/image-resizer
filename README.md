@@ -1,6 +1,6 @@
 # Image Resizer
 
-A micro-service to resize images. It provides an http end-point that takes the original url, desired height & width as parameters and returns the resized image in response.
+A micro-service to resize images. It provides an http end-point that takes the original image url, desired height & width as parameters and returns the resized image in response.
 
 #### Usage:
 
