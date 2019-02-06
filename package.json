@@ -1,0 +1,24 @@
+{
+  "name": "img-resizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "filed": "^0.1.0",
+    "image-download": "^1.1.0",
+    "image-type": "^3.0.0",
+    "md5": "^2.2.1",
+    "mime": "^2.4.0",
+    "restify": "^7.7.0",
+    "sharp": "^0.21.3",
+    "util": "^0.11.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
