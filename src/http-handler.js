@@ -4,26 +4,35 @@ const resizer = require('./resizer');
 const fs = require('fs');
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
+const fileExists = util.promisify(fs.exists);
 
 // Handle request
 async function resizeImage(req, res, next) {
 
     const params = paramHelper.getParams(req);
     const fileName = paramHelper.getFileName(params);
+    const resizedFileName = paramHelper.getResizedFileName(params);
+
+    const originalFilePath = './tmp/' + fileName;
+    const resizedFilePath = './tmp/' + resizedFileName;
 
     try{
-        const downloadedFileName = await downloader.download(params.url, fileName);
 
-        const downloadedFilePath = './tmp/' + downloadedFileName;
-        const resizedFileName = await resizer.resize( downloadedFilePath, params);
+        // Resize file if not available in cache
+        if(!await fileExists(resizedFilePath))
+        {
 
-        const resizedFilePath = './tmp/' + resizedFileName;
+            // Download file if not available in cache
+            if(!await fileExists(originalFilePath)) {
+                await downloader.download(params.url, fileName);
+            }
+
+            await resizer.resize( originalFilePath, params);
+        }
 
         const file = await readFile(resizedFilePath);
-
         res.write(file);
         res.end();
-
     }
     catch (e){
         next(e);

@@ -6,7 +6,7 @@ async function resize(filePath, params) {
 
     try {
 
-        const resizedImageName = paramHelper.getResizedFileName(params) + ".png";
+        const resizedImageName = paramHelper.getResizedFileName(params);
         const resizedImagePath = './tmp/' + resizedImageName;
 
         await sharp(filePath)
