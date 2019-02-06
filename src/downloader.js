@@ -10,12 +10,11 @@ async function download(url, fileName) {
     let buffer = await imageDownload(url);
 
     const type = imageType(buffer);
-    const downloadedFileName = fileName + '.' + type.ext;
-    const filePath = './tmp/' + downloadedFileName;
+    const filePath = './tmp/' + fileName;
 
     try {
         await writeToFile(filePath, buffer);
-        return Promise.resolve(downloadedFileName);
+        return Promise.resolve(fileName);
     } catch (e) {
         return Promise.reject(err);
     }
