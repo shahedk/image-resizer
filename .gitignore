@@ -36,6 +36,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Temporary download folder
+tmp/
+
 # TypeScript v1 declaration files
 typings/
 
