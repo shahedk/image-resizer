@@ -12,6 +12,7 @@ server.use(restify.plugins.queryParser());
 // Register handlers
 server.get('/resize/', httpHandler.resizeImage);
 server.get('/resize', httpHandler.resizeImage);
+server.get('/', httpHandler.landingPage);
 
 
 // Start server

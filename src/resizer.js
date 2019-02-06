@@ -9,10 +9,36 @@ async function resize(filePath, params) {
         const resizedImageName = paramHelper.getResizedFileName(params);
         const resizedImagePath = './tmp/' + resizedImageName;
 
-        await sharp(filePath)
+        if( params.format === "jpg" || params.format == "jpeg") {
+
+            await sharp(filePath)
             .resize(params.width, params.height)
-            .png()
+                .jpeg()
             .toFile(resizedImagePath);
+        }
+        else if(params.format === "webp"){
+
+            await sharp(filePath)
+                .resize(params.width, params.height)
+                .webp()
+                .toFile(resizedImagePath);
+        }
+        else if(params.format === "tiff"){
+
+            await sharp(filePath)
+                .resize(params.width, params.height)
+                .tiff()
+                .toFile(resizedImagePath);
+        }
+        else{
+
+            // Default - PNG
+
+            await sharp(filePath)
+                .resize(params.width, params.height)
+                .png()
+                .toFile(resizedImagePath);
+        }
 
         return Promise.resolve(resizedImageName);
     }

@@ -39,7 +39,14 @@ async function resizeImage(req, res, next) {
     }
 }
 
+async function landingPage(req, res, next) {
+    const file = await readFile('./src/wwwroot/index.html');
+    res.write(file);
+    res.end();
+}
+
 
 module.exports = {
-    resizeImage
+    resizeImage,
+    landingPage
 }
