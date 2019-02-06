@@ -10,7 +10,8 @@ server.use(restify.plugins.queryParser());
 
 
 // Register handlers
-server.get('/', httpHandler.resizeImage);
+server.get('/resize/', httpHandler.resizeImage);
+server.get('/resize', httpHandler.resizeImage);
 
 
 // Start server
