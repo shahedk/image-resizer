@@ -1,5 +1,6 @@
 {
   "DefaultImageUrl" : "http://cdn.shahed.ca/default.jpg",
   "DefaultHeight" : 150,
-  "DefaultWidth" : 200
+  "DefaultWidth" : 200,
+  "DefaultOutputImageFormat" : "png"
 }

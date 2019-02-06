@@ -9,7 +9,7 @@ function getFileName(params){
 
 function getResizedFileName(params){
     var urlHash = md5(params.url);
-    var fileName = urlHash + '_' + params.height + '_' + params.width;
+    var fileName = urlHash + '_' + params.height + '_' + params.width + "." + params.format;
 
     return fileName;
 }
@@ -22,6 +22,7 @@ function getParams(req){
     let url = req.query.url;
     let width = req.query.w ? req.query.w : req.query.width;
     let height = req.query.h ? req.query.h : req.query.height;
+    let format = req.query.f ? req.query.f : req.query.format;
 
     try{
         width = parseInt(width);
@@ -35,6 +36,27 @@ function getParams(req){
     }
     catch  {
         height = config.DefaultHeight;
+    }
+
+    if(format === undefined){
+        format = "png";
+    }
+    else{
+        format = format.toLowerCase();
+
+        // check if its one of the supported format
+        if( format === "png" ||
+            format === "jpeg" ||
+            format === "jpg" ||
+            format === "webp" ||
+            format === "tiff"
+        )
+        {
+            // OK, its one of the supported format
+        }
+        else {
+            format = config.DefaultOutputImageFormat;
+        }
     }
 
     /*
@@ -55,7 +77,8 @@ function getParams(req){
     return {
         height : height,
         width: width,
-        url : url
+        url : url,
+        format : format
     }
 }
 

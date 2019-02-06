@@ -11,7 +11,7 @@ describe('Test image file download and resize', function() {
 
         this.timeout(30000);
 
-        const params = {url: config.DefaultImageUrl, height: 100, width: 150};
+        const params = {url: config.DefaultImageUrl, height: 100, width: 150, format : 'webp'};
 
         const fileName = paramHelper.getFileName(params);
 
