@@ -24,4 +24,4 @@ For example, the http request to resize an image from "http://cdn.shahed.ca/defa
 http://localhost:8080/resize?w=100&h=100&url=http%3A//cdn.shahed.ca/default.jpg&f=png
 ```
 
-The service supports these formats: PNG, JPEG, TIFF, WebP
+The service uses the sharp image resizer libarary and supported output image formats are: PNG, JPEG, TIFF and WebP
