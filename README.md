@@ -1,6 +1,6 @@
 # Image Resizer
 
-A micro-service to resize images. It provides an http end-point that takes the original image url, desired height & width as parameters and returns the resized image in response.
+A micro-service to resize images. It provides an http end-point that takes the original image url, desired height, width & output image format as parameters and returns the resized image in response.
 
 #### Usage:
 
@@ -12,7 +12,7 @@ docker run  -p 8080:80 shahedk/image-resizer:latest
 The above script will start the container at http://localhost:8080
 
 ##### Resize images from url
-Specify the image url, desired height, width and output format in the parameters. The response will contain the output image:
+Specify the image url and desired settings in the parameters. The response will contain the output image:
 
 ```
 http://localhost:8080/resize?url={image url}&h={height}&w={width}&f={format}
