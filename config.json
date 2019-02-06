@@ -2,5 +2,7 @@
   "DefaultImageUrl" : "http://cdn.shahed.ca/default.jpg",
   "DefaultHeight" : 150,
   "DefaultWidth" : 200,
-  "DefaultOutputImageFormat" : "png"
+  "DefaultOutputImageFormat" : "png",
+  "CacheDuration" : 5,
+  "_comment" : "CacheDuration is specified in hours"
 }
