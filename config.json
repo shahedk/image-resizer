@@ -1,5 +1,5 @@
 {
-  "DefaultImageUrl" : "https://cdn.pixabay.com/photo/2016/11/08/16/49/floral-1808861_640.jpg",
+  "DefaultImageUrl" : "http://cdn.shahed.ca/default.jpg",
   "DefaultHeight" : 150,
   "DefaultWidth" : 200,
   "DefaultOutputImageFormat" : "png"
