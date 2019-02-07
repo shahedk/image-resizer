@@ -9,42 +9,15 @@ async function resize(filePath, params) {
         const resizedImageName = paramHelper.getResizedFileName(params);
         const resizedImagePath = './tmp/' + resizedImageName;
 
-
-
-        if( params.format === "jpg" || params.format == "jpeg") {
-
-            await sharp(filePath)
-            .resize(params.width, params.height)
-                .jpeg()
-            .toFile(resizedImagePath);
-        }
-        else if(params.format === "webp"){
-
-            await sharp(filePath)
-                .resize(params.width, params.height)
-                .webp()
-                .toFile(resizedImagePath);
-        }
-        else if(params.format === "tiff"){
-
-            await sharp(filePath)
-                .resize(params.width, params.height)
-                .tiff()
-                .toFile(resizedImagePath);
-        }
-        else{
-
-            // Default - PNG
-
             await sharp(filePath)
                 .resize(params.width, params.height, {
                     kernel: sharp.kernel.nearest,
                     fit: params.fit,
                     background: config.ImageBackground
                 })
-                .png()
+                .toFormat(params.format)
                 .toFile(resizedImagePath);
-        }
+
 
         return Promise.resolve(resizedImageName);
     }
