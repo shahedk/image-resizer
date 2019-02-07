@@ -39,8 +39,8 @@
                 </p>
             <p>
                 Sample http request format:
-                <code>
-                    http://localhost/resize?url={image url}&h={height}&w={width}&f={format}
+                <code id="codeSnippet">
+
                 </code>
             </p>
         </div>
@@ -124,6 +124,10 @@
 
         $('#resultModal').modal('show');
     }
+
+    $(document).ready(function(){
+       $('#codeSnippet').html(document.location.href + 'resize?url={image url}&h={height}&w={width}&f={format}');
+    });
 </script>
 </body>
 </html>
