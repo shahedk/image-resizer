@@ -1,5 +1,7 @@
 const restify = require('restify');
 const httpHandler = require('./http-handler');
+const cacheHelper = require('./cache-helper');
+
 
 // Initialize server
 const server = restify.createServer();
@@ -19,3 +21,14 @@ server.get('/', httpHandler.landingPage);
 server.listen(80, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
+
+
+// Run Cache cleanup task in the background (every 10 minutes)
+setInterval(async function(){
+  try {
+    await cacheHelper.runCacheCleanupTask();
+  }
+  catch (e) {
+    //TODO: Log error
+  }
+}, 1000 * 60 * 10);
