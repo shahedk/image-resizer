@@ -23,6 +23,12 @@ function getParams(req){
     let width = req.query.w ? req.query.w : req.query.width;
     let height = req.query.h ? req.query.h : req.query.height;
     let format = req.query.f ? req.query.f : req.query.format;
+    let fit = (req.query.fit ? req.fit : config.DefaultImageFitPolicy).toLowerCase();
+
+    if( !(fit == 'cover' || fit == 'contain') ){
+        // Fall back to default
+        fit = config.DefaultImageFitPolicy.toLocaleString();
+    }
 
     try{
         width = parseInt(width);
@@ -78,7 +84,8 @@ function getParams(req){
         height : height,
         width: width,
         url : url,
-        format : format
+        format : format,
+        fit : fit
     }
 }
 
