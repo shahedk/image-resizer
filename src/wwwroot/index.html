@@ -94,7 +94,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <a id="lnkDownload" target="_blank"><i class="fa fa-download"></i> Download</a>
+                <i class="fa fa-download"></i> &nbsp;<a id="lnkDownload" target="_blank">Download</a>
                 <p>
                     <img  id="imgResized" />
                 </p>
@@ -116,10 +116,11 @@
         var w = $('#txtWidth').val();
         var f = $('#drpFormat').val();
 
-        var reqUrl = '/resize?url='+url+'&h='+h+'&w='+w+'&f='+f;
+        var reqUrl = document.location.href + 'resize?url='+url+'&h='+h+'&w='+w+'&f='+f;
 
         $('#imgResized').attr('src',reqUrl);
         $('#lnkDownload').attr('href', reqUrl);
+        $('#lnkDownload').html( reqUrl);
 
         $('#resultModal').modal('show');
     }
