@@ -15,8 +15,15 @@ The above script will start the container at http://localhost:8080
 Specify the image url and desired settings in the parameters. The response will contain the output image:
 
 ```
-http://localhost:8080/resize?url={image url}&h={height}&w={width}&f={format}
+http://localhost:8080/resize?url={imageurl}&h={height}&w={width}&f={format}
 ```
+
+#### Available parameters
+* `url` `(string: required)`
+* `h` or `height` `(int: required)`
+* `w` or `width` `(int: required)`
+* `f` or `format` `(possible values: png | jpg | tiff | webp)`
+* `fit` `(possible values: cover | contain)`
 
 For example, the http request to resize an image from "http://cdn.shahed.ca/default.jpg" into 100x100 pixel image of PNG format would look like this:
 
