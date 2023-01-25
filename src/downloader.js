@@ -13,7 +13,7 @@ async function download(url, fileName) {
     try {
         await writeToFile(filePath, buffer);
         return Promise.resolve(fileName);
-    } catch (e) {
+    } catch (err) {
         return Promise.reject(err);
     }
 
