@@ -15,7 +15,7 @@ function getResizedFileName(params){
 }
 
 function getParams(req){
-
+    const AVAILABLE_FIT_MODES = ['cover', 'contain', 'fill', 'inside', 'outside'] 
     /*
      * Get values from URL Params
      */
@@ -25,7 +25,7 @@ function getParams(req){
     let format = req.query.f ? req.query.f : req.query.format;
     let fit = (req.query.fit ? req.query.fit : config.DefaultImageFitPolicy).toLowerCase();
 
-    if( !(fit == 'cover' || fit == 'contain') ){
+    if( !(AVAILABLE_FIT_MODES.includes(fit)) ){
         // Fall back to default
         fit = config.DefaultImageFitPolicy.toLocaleString();
     }
