@@ -1,0 +1,9 @@
+version: "3"
+services:
+  image-resizer:
+    image: rg.fr-par.scw.cloud/ogre/image-crop:latest
+    container_name: image-resizer
+    ports:
+      - 3080:3080 #IP_HOST is different for each environment
+    environment:
+      - APP_PORT=3080
