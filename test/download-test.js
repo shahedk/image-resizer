@@ -5,7 +5,7 @@ const paramHelper = require('../src/param-helper');
 
 describe('Test image file download',  ()=> {
 
-    it('should save file in the "tmp" folder', async function(done) {
+    it('should save file in the "tmp" folder', async function() {
 
         this.timeout(30000);
 
@@ -14,7 +14,8 @@ describe('Test image file download',  ()=> {
 
         try {
             const downloadedFileName = await downloader.download(params.url, fileName)
-            assert(downloadedFileName.length > 0);
+            assert(downloadedFileName.length > 0, 'File name is empty');
+
         }
         catch (e) {
             assert.throws(e);
