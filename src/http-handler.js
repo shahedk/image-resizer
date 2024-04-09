@@ -7,7 +7,7 @@ const readFile = util.promisify(fs.readFile);
 const fileExists = util.promisify(fs.exists);
 
 // Handle request
-async function resizeImage(req, res, next) {
+async function resizeImage(req, res) {
 
     const params = paramHelper.getParams(req);
     const fileName = paramHelper.getFileName(params);
@@ -16,30 +16,25 @@ async function resizeImage(req, res, next) {
     const originalFilePath = './tmp/' + fileName;
     const resizedFilePath = './tmp/' + resizedFileName;
 
-    try{
 
-        // Resize file if not available in cache
-        if(!await fileExists(resizedFilePath))
-        {
+    // Resize file if not available in cache
+    if (!await fileExists(resizedFilePath)) {
 
-            // Download file if not available in cache
-            if(!await fileExists(originalFilePath)) {
-                await downloader.download(params.url, fileName);
-            }
-
-            await resizer.resize( originalFilePath, params);
+        // Download file if not available in cache
+        if (!await fileExists(originalFilePath)) {
+            await downloader.download(params.url, fileName);
         }
 
-        const file = await readFile(resizedFilePath);
-        res.write(file);
-        res.end();
+        await resizer.resize(originalFilePath, params);
     }
-    catch (e){
-        next(e);
-    }
+
+    const file = await readFile(resizedFilePath);
+    res.write(file);
+    res.end();
+
 }
 
-async function landingPage(req, res, next) {
+async function landingPage(req, res) {
     const file = await readFile('./src/wwwroot/index.html');
     res.write(file);
     res.end();
