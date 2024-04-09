@@ -25,10 +25,10 @@ http://localhost:8080/resize?url={imageurl}&h={height}&w={width}&f={format}
 * `f` or `format` `(possible values: png | jpg | tiff | webp)`
 * `fit` `(possible values: cover | contain)`
 
-For example, the http request to resize an image from "http://cdn.shahed.ca/default.jpg" into 100x100 pixel image of PNG format would look like this:
+For example, the http request to resize an image from "https://cdn.shahed.ca/default.jpg" into 100x100 pixel image of PNG format would look like this:
 
 ```
-http://localhost:8080/resize?w=100&h=100&url=http%3A//cdn.shahed.ca/default.jpg&f=png
+http://localhost:8080/resize?w=100&h=100&url=https%3A//cdn.shahed.ca/default.jpg&f=png
 ```
 
 The service uses the sharp image resizer libarary and supported output image formats are: PNG, JPEG, TIFF and WebP
