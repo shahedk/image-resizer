@@ -26,3 +26,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: shahedk/image-resizer
+        platforms: linux/amd64,linux/arm64
