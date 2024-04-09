@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build Docker Image for amd64
 
 on:
   push:
@@ -27,15 +27,3 @@ jobs:
         push: true
         tags: shahedk/image-resizer
         platforms: linux/amd64
-
-
-    - name: Build and Push Docker image for arm64
-      uses: docker/build-push-action@v2
-      with:
-        context: .  
-        file: ./Dockerfile
-        push: true
-        tags: shahedk/image-resizer
-        platforms: linux/arm64
-
-        
