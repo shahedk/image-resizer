@@ -19,11 +19,31 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PAT }}
 
-    - name: Build and Push Docker image for amd64, arm64
+    - name: Build and Push Docker image for linux/amd64
       uses: docker/build-push-action@v5
       with:
         context: .  
         file: ./Dockerfile
         push: true
         tags: shahedk/image-resizer
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64
+
+    - name: Build and Push Docker image for linux/arm64
+      uses: docker/build-push-action@v5
+      with:
+        context: .  
+        file: ./Dockerfile
+        push: true
+        tags: shahedk/image-resizer
+        platforms: linux/arm64
+
+    - name: Build and Push Docker image for darwin/amd64
+      uses: docker/build-push-action@v5
+      with:
+        context: .  
+        file: ./Dockerfile
+        push: true
+        tags: shahedk/image-resizer
+        platforms: darwin/amd64
+
+
