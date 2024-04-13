@@ -36,14 +36,3 @@ jobs:
         push: true
         tags: shahedk/image-resizer
         platforms: linux/arm64
-
-    - name: Build and Push Docker image for darwin/amd64
-      uses: docker/build-push-action@v5
-      with:
-        context: .  
-        file: ./Dockerfile
-        push: true
-        tags: shahedk/image-resizer
-        platforms: darwin/amd64
-
-
