@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PAT }}
 
-    - name: Build and Push Docker image for amd64
+    - name: Build and Push Docker image for amd64, arm64
       uses: docker/build-push-action@v5
       with:
         context: .  
